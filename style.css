@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(25, 26, 32);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.footer {
+    font-size: 18px;
+    background-color: cadetblue;
+}
