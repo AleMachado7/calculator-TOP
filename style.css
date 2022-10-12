@@ -36,17 +36,17 @@ h1 {
     display: flex;
     flex-direction: column;
     background-color: rgb(78, 78, 78);
-    justify-content: space-between;
     width: 400px;
     height: 500px;
     padding: 20px;
     border-radius: 20px;
     margin-top: 20px;
+    gap: 10px;
 }
 
 .calculator-display {
     word-wrap: break-word;
-    overflow: scroll;
+    overflow: auto;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -54,23 +54,22 @@ h1 {
     height: 100px;
     border-radius: 10px;     
     padding: 8px;
-    
 } 
 
 .calculator-display-text {
     word-wrap: break-word;
-    font-size: 20px;
+    font-size: 25px;
     margin: 0px;
     color: rgb(0, 0, 0);
     max-width: 100%;
     max-height: 100%;
 }
 
-.clear-buttons{
+.erase-buttons{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .clear-button, .backspace-button {
@@ -90,11 +89,29 @@ h1 {
     background-color: rgb(221, 239, 255);
 }
 
-.math-buttons {
+.calculator-math-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    max-width: 70%;
+}
+
+.math-buttons,
+.evaluate-button {
     background-color: brown;
-    font-size: 18px;
-    height: 70px;
-    width: 70px;
+    font-size: 25px;
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    border-color: rgb(187, 187, 187);
+    border-width: 1px;
+}
+
+.math-buttons:hover, 
+.clear-button:hover,
+.backspace-button:hover  {
+    -webkit-filter: brightness(75%);
 }
 
 .footer {

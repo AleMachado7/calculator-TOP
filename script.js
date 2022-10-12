@@ -35,14 +35,25 @@ function operate(operator, a, b) {
     }
 }
 
+const displayText = document.querySelector(".calculator-display-text");
 
-function clearDisplay() {
-    const display = document.querySelector(".calculator-display-text");
-    display.textContent = "0";
+function clearDisplay(display) {
+    display.textContent = "";
     return ;
 }
 
-
 const clearButton = document.querySelector(".clear-button");
-clearButton.addEventListener("click", clearDisplay);
+clearButton.addEventListener("click", () => clearDisplay(displayText));
 
+
+function eraseNumber(display) {
+    display.textContent = display.textContent.slice(0,-1);
+    return ;
+}
+
+const backspaceButton = document.querySelector(".backspace-button");
+backspaceButton.addEventListener("click", () => eraseNumber(displayText));
+
+
+const inputButtons = document.querySelectorAll(".math-buttons");
+inputButtons.forEach(button => button.addEventListener("click", () => displayText.textContent += button.value))
