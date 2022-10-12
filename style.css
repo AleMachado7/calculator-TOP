@@ -10,10 +10,91 @@ body {
     background-color: rgb(25, 26, 32);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
 }
 
-.footer {
-    font-size: 18px;
-    background-color: cadetblue;
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 0px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(78, 78, 78);
+    justify-content: space-between;
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.calculator-display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: rgb(187, 228, 228);
+    height: 100px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+} 
+
+.clear-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.clear-button, .backspace-button {
+    width: 180px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    color: black;
+}
+
+.clear-button {
+    background-color: rgb(255, 159, 159);    
+}
+
+.backspace-button {
+    background-color: rgb(221, 239, 255);
+}
+
+.math-buttons {
+    background-color: brown;
+    font-size: 18px;
+    height: 70px;
+    width: 70px;
+}
+
+.footer {
+    font-size: 16px;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    text-decoration: none;
+    font-weight: 800;
+}
+
