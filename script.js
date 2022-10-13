@@ -1,17 +1,18 @@
+const calculatorInput = [];
+
+
+// BASIC MATH FUNCTIONS
 function add(a, b) {
     return a + b;
 }
-
 
 function subtract(a, b) {
     return a - b;
 }
 
-
 function multiply(a, b) {
     return a * b;
 }
-
 
 function divide(a, b) {
     return a / b;
@@ -57,3 +58,8 @@ backspaceButton.addEventListener("click", () => eraseNumber(displayText));
 
 const inputButtons = document.querySelectorAll(".math-buttons");
 inputButtons.forEach(button => button.addEventListener("click", () => displayText.textContent += button.value))
+
+function getInput(value) {
+    calculatorInput.push(value);
+    displayText.textContent = calculatorInput.join("");
+}
