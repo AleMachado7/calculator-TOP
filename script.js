@@ -1,6 +1,3 @@
-const calculatorInput = [];
-
-
 // BASIC MATH FUNCTIONS
 function add(a, b) {
     return a + b;
@@ -15,51 +12,77 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+    return b > 0 ? a / b : "Can't divide by zero";
 }
 
 
-function operate(operator, a, b) {
+function operate(a, operator, b) {    
     switch (operator) {
         case '+':
-            console.log(add(a, b));
-            break;
+            return add(a, b);
         case '-':
-            console.log(subtract(a, b));
-            break;
+            return subtract(a, b);
         case '*':
-            console.log(multiply(a, b));
-            break;
+            return multiply(a, b);
         case '/':
-            console.log(divide(a, b));
-            break;
+            return divide(a, b);
     }
 }
 
-const displayText = document.querySelector(".calculator-display-text");
 
-function clearDisplay(display) {
-    display.textContent = "";
-    return ;
+const displayText = document.querySelector(".calculator-display-text");
+let input = ''
+
+// Math input buttons
+const numberButtons = document.querySelectorAll(".math-button");
+numberButtons.forEach(button => button.addEventListener("click", () => {
+    input += button.value;
+    displayText.textContent = input;
+}));
+
+const operatorButtons = document.querySelectorAll(".operator-button");
+operatorButtons.forEach(button => button.addEventListener("click", () => {
+    const operators = ['+', '-', '*', '/'];
+    if(operators.some(element => input.includes(element))) {
+        return ;
+    }
+    input += button.value;
+    displayText.textContent = input;
+}));
+
+//evaluate button
+function evaluateInput(inputString) {
+    let [num1, operator, num2] = inputString.split(' ');
+    let result = operate(Number(num1), operator, Number(num2));
+    displayText.textContent = result;
+    input = '';
 }
 
-const clearButton = document.querySelector(".clear-button");
-clearButton.addEventListener("click", () => clearDisplay(displayText));
+const evaluateButton = document.querySelector(".evaluate-button");
+evaluateButton.addEventListener("click", () => evaluateInput(input));
 
 
-function eraseNumber(display) {
-    display.textContent = display.textContent.slice(0,-1);
-    return ;
+// Backspace Button
+function eraseNumber() {
+    input = input.slice(0, -1);
+    displayText.textContent = input;
 }
 
 const backspaceButton = document.querySelector(".backspace-button");
 backspaceButton.addEventListener("click", () => eraseNumber(displayText));
 
-
-const inputButtons = document.querySelectorAll(".math-buttons");
-inputButtons.forEach(button => button.addEventListener("click", () => displayText.textContent += button.value))
-
-function getInput(value) {
-    calculatorInput.push(value);
-    displayText.textContent = calculatorInput.join("");
+//Clear Button
+function clearDisplay() {
+    input = ''
+    displayText.textContent = 0;
 }
+
+const clearButton = document.querySelector(".clear-button");
+clearButton.addEventListener("click", clearDisplay);
+
+
+//keyboard support
+window.addEventListener("keydown", function(e) {
+    const button = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    button ? button.click() : null;
+})

@@ -16,33 +16,32 @@
         <div class="header">
             <h1>The Odin Calculator</h1>
             <p>This project was created as an exercise for The Odin Project.</p>
-            <p>This calculator evaluates ONE expression at time, so you can't include more than 1 operator per expression.</p>
         </div>    
         <div class="calculator">
             <div class="calculator-display">
-                <p class="calculator-display-text"></p>
+                <p class="calculator-display-text">0</p>
             </div>
             <div class="erase-buttons">
                 <button class="clear-button">CLEAR</button>
                 <button class="backspace-button">BACKSPACE</button>
             </div>
             <div class="calculator-math-buttons">
-                <button class="math-buttons" value="7">7</button>
-                <button class="math-buttons" value="8">8</button>
-                <button class="math-buttons" value="9">9</button>
-                <button class="math-buttons" value=" - ">-</button>
-                <button class="math-buttons" value="4">4</button>
-                <button class="math-buttons" value="5">5</button>
-                <button class="math-buttons" value="6">6</button>
-                <button class="math-buttons" value=" + ">+</button>
-                <button class="math-buttons" value="1">1</button>
-                <button class="math-buttons" value="2">2</button>
-                <button class="math-buttons" value="3">3</button>
-                <button class="math-buttons" value=" * ">*</button>
-                <button class="math-buttons" value="0">0</button>
-                <button class="math-buttons" value=" . ">.</button>
-                <button class="math-buttons" value=" / ">/</button>
-                <button class="evaluate-button">=</button>
+                <button class="math-button" value="7" data-key="103">7</button>
+                <button class="math-button" value="8" data-key="104">8</button>
+                <button class="math-button" value="9" data-key="105">9</button>
+                <button class="operator-button" value=" - " data-key="109">-</button>
+                <button class="math-button" value="4" data-key="100">4</button>
+                <button class="math-button" value="5" data-key="101">5</button>
+                <button class="math-button" value="6" data-key="102">6</button>
+                <button class="operator-button" value=" + " data-key="107">+</button>
+                <button class="math-button" value="1" data-key="97">1</button>
+                <button class="math-button" value="2" data-key="98">2</button>
+                <button class="math-button" value="3" data-key="99">3</button>
+                <button class="operator-button" value=" * " data-key="106">*</button>
+                <button class="math-button" value="0" data-key="96">0</button>
+                <button class="operator-button" value="." data-key="110">.</button>
+                <button class="operator-button" value=" / " data-key="111">/</button>
+                <button class="evaluate-button" data-key="13">=</button>
             </div>
         </div>        
     </div>

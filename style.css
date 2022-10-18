@@ -52,7 +52,7 @@ h1 {
     justify-content: flex-end;
     align-items: flex-end;
     background-color: rgb(187, 228, 228);
-    height: 20%;
+    height: 30%;
     width: 100%;
     border-radius: 10px;     
     padding: 8px;
@@ -95,18 +95,31 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
 }
 
-.math-buttons,
-.evaluate-button {
-    background-color: rgb(173, 50, 50);
+.math-button,
+.evaluate-button,
+.operator-button {
     font-size: 25px;
     height: 70px;
     width: 70px;
     border-radius: 8px;
     border-color: rgb(187, 187, 187);
     border-width: 1px;    
+    font-weight: 800;
+}
+
+.math-button {
+    background-color: rgb(173, 50, 50);
+}
+
+.operator-button {
+    background-color: rgb(190, 146, 25);    
+}
+
+.evaluate-button{
+    background-color: rgb(59, 59, 134);
 }
 
 button:hover {
