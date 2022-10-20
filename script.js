@@ -44,7 +44,7 @@ const operatorButtons = document.querySelectorAll(".operator-button");
 operatorButtons.forEach(button => button.addEventListener("click", () => {
     const operators = ['+', '-', '*', '/'];
     if(operators.some(element => input.includes(element))) {
-        return ;
+        evaluateInput(input);
     }
     input += button.value;
     displayText.textContent = input;
@@ -52,10 +52,13 @@ operatorButtons.forEach(button => button.addEventListener("click", () => {
 
 //evaluate button
 function evaluateInput(inputString) {
-    let [num1, operator, num2] = inputString.split(' ');
-    let result = operate(Number(num1), operator, Number(num2));
-    displayText.textContent = result;
-    input = '';
+    const args = inputString.split(' ')
+    if(args.length < 2) {
+        return ;
+    }
+    let [num1, operator, num2] = args;
+    input = String(Math.round(operate(Number(num1), operator, Number(num2)) * 100) / 100);
+    displayText.textContent = input;
 }
 
 const evaluateButton = document.querySelector(".evaluate-button");
@@ -85,4 +88,14 @@ clearButton.addEventListener("click", clearDisplay);
 window.addEventListener("keydown", function(e) {
     const button = document.querySelector(`button[data-key="${e.keyCode}"]`);
     button ? button.click() : null;
+})
+
+//decimal point
+decimalButton = document.querySelector(".dot-button");
+decimalButton.addEventListener("click", () => {
+    if(input.includes('.')) {
+        return ;
+    }
+    input += decimalButton.value;
+    displayText.textContent = input;
 })

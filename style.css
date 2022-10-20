@@ -67,7 +67,7 @@ h1 {
     max-height: 100%;
 }
 
-.erase-buttons{
+.erase-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,8 @@ h1 {
 
 .math-button,
 .evaluate-button,
-.operator-button {
+.operator-button,
+.dot-button {
     font-size: 25px;
     height: 70px;
     width: 70px;
@@ -114,7 +115,8 @@ h1 {
     background-color: rgb(173, 50, 50);
 }
 
-.operator-button {
+.operator-button,
+.dot-button {
     background-color: rgb(190, 146, 25);    
 }
 
