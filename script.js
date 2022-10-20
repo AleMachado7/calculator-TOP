@@ -31,7 +31,7 @@ function operate(a, operator, b) {
 
 
 const displayText = document.querySelector(".calculator-display-text");
-let input = ''
+let input = '';
 
 // Math input buttons
 const numberButtons = document.querySelectorAll(".math-button");
@@ -52,13 +52,20 @@ operatorButtons.forEach(button => button.addEventListener("click", () => {
 
 //evaluate button
 function evaluateInput(inputString) {
-    const args = inputString.split(' ')
+    const args = inputString.split(' ');
     if(args.length < 2) {
         return ;
     }
     let [num1, operator, num2] = args;
-    input = String(Math.round(operate(Number(num1), operator, Number(num2)) * 100) / 100);
-    displayText.textContent = input;
+    input = operate(Number(num1), operator, Number(num2));
+    if(typeof(input) === 'string') {
+        let error = input;
+        displayText.textContent = error;
+        input = '';
+    } else {
+        input = String((Math.round(input * 100 ) / 100));
+        displayText.textContent = input;
+    }
 }
 
 const evaluateButton = document.querySelector(".evaluate-button");
@@ -76,7 +83,7 @@ backspaceButton.addEventListener("click", () => eraseNumber(displayText));
 
 //Clear Button
 function clearDisplay() {
-    input = ''
+    input = '';
     displayText.textContent = 0;
 }
 
